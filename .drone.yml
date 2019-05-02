@@ -64,8 +64,3 @@ steps:
       status:
       - failure
       - success
-      branch: 
-      - master
-      - develop
-      event:
-      - push

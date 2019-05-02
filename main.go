@@ -1,14 +1,12 @@
 package main
 
 import (
-	_ "github.com/jevilla94/documento_programa_crud/routers"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
-	"github.com/udistrital/utils_oas/apiStatusLib"
+	_ "github.com/planesticud/documento_programa_crud/routers"
 )
 
 func init() {
@@ -43,4 +41,3 @@ func main() {
 	apistatus.Init()
 	beego.Run()
 }
-
