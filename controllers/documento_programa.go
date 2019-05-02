@@ -5,11 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/fatih/structs"
-	"github.com/jevilla94/documento_programa_crud/models"
-	"github.com/udistrital/utils_oas/formatdata"
-
 	"github.com/astaxie/beego"
+	"github.com/fatih/structs"
+	"github.com/planesticud/documento_programa_crud/models"
+	"github.com/udistrital/utils_oas/formatdata"
 )
 
 // DocumentoProgramaController operations for DocumentoPrograma
@@ -44,7 +43,8 @@ func (c *DocumentoProgramaController) Post() {
 			var code string
 			formatdata.FillStruct(alertdb["Code"], &code)
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert		}
+			c.Data["json"] = alert
+		}
 	} else {
 		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}
@@ -154,7 +154,8 @@ func (c *DocumentoProgramaController) Put() {
 			var code string
 			formatdata.FillStruct(alertdb["Code"], &code)
 			alert := models.Alert{Type: "error", Code: "E_" + code, Body: err.Error()}
-			c.Data["json"] = alert		}
+			c.Data["json"] = alert
+		}
 	} else {
 		c.Data["json"] = models.Alert{Type: "error", Code: "E_400", Body: err.Error()}
 	}

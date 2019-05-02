@@ -10,7 +10,7 @@ Go version >= 1.8.
 
 ## Preparación:
     Para usar el API, usar el comando:
-        - go get github.com/jevilla94/documento_programa_crud
+        - go get github.com/planesticud/documento_programa_crud
 
 ## Run
 
