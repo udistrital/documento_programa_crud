@@ -14,7 +14,7 @@ func init() {
 }
 
 func main() {
-	//orm.Debug = true
+
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
@@ -37,6 +37,6 @@ func main() {
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
 	logs.SetLogger(logs.AdapterFile, logPath)
-
+	orm.RunCommand()
 	beego.Run()
 }

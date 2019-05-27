@@ -9,4 +9,6 @@ if [ -n "${PARAMETER_STORE:-}" ]; then
   export ENTE_CRUD__PGPASS="$(aws ssm get-parameter --with-decryption --name /${PARAMETER_STORE}/ente_crud/db/password --output text --query Parameter.Value)"
 fi
 
-exec ./main "$@"
+exec ./main orm syncdb -db="default" -force=true -v=true
+exec ./main "$@" 
+
