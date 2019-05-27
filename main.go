@@ -7,6 +7,7 @@ import (
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
 	_ "github.com/planesticud/documento_programa_crud/routers"
+	"github.com/udistrital/utils_oas/apiStatusLib"
 )
 
 func init() {
@@ -37,6 +38,7 @@ func main() {
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
 	logs.SetLogger(logs.AdapterFile, logPath)
+	apistatus.Init()
 	orm.RunCommand()
 	beego.Run()
 }
