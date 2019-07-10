@@ -543,6 +543,9 @@
                 "Activo": {
                     "type": "boolean"
                 },
+                "FechaModificacion": {
+                    "type": "string"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -575,6 +578,9 @@
                     "type": "integer",
                     "format": "int64"
                 },
+                "FechaModificacion": {
+                    "type": "string"
+                },
                 "Id": {
                     "type": "integer",
                     "format": "int64"
@@ -595,6 +601,9 @@
                     "type": "string"
                 },
                 "Extension": {
+                    "type": "string"
+                },
+                "FechaModificacion": {
                     "type": "string"
                 },
                 "Id": {

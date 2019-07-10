@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -14,6 +15,7 @@ type SoporteDocumentoPrograma struct {
 	Ente              int                `orm:"column(ente)"`
 	Documento         int                `orm:"column(documento)"`
 	DocumentoPrograma *DocumentoPrograma `orm:"column(documento_programa);rel(fk)"`
+	FechaModificacion string             `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *SoporteDocumentoPrograma) TableName() string {
@@ -27,6 +29,9 @@ func init() {
 // AddSoporteDocumentoPrograma insert a new SoporteDocumentoPrograma into database and returns
 // last inserted Id on success.
 func AddSoporteDocumentoPrograma(m *SoporteDocumentoPrograma) (id int64, err error) {
+	var t time.Time
+	t = time.Now()
+	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -126,6 +131,9 @@ func GetAllSoporteDocumentoPrograma(query map[string]string, fields []string, so
 func UpdateSoporteDocumentoProgramaById(m *SoporteDocumentoPrograma) (err error) {
 	o := orm.NewOrm()
 	v := SoporteDocumentoPrograma{Id: m.Id}
+	var t time.Time
+	t = time.Now()
+	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

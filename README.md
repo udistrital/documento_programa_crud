@@ -26,4 +26,4 @@ Definir los valores de las siguientes variables de entorno:
 Ejemplo: API_DOCUMENTO_PROGRAMA_HTTP_PORT=8126 DOCUMENTO_PROGRAMA_CRUD__PGUSER=user DOCUMENTO_PROGRAMA_CRUD__PGPASS=password DOCUMENTO_PROGRAMA_CRUD__PGURLS=localhost DOCUMENTO_PROGRAMA_CRUD__PGDB=bd DOCUMENTO_PROGRAMA_CRUD__SCHEMA=schema_new bee run
 
 ## MODELO
-![image](https://github.com/campus-virtual-planestic-ud/documento_programa_crud/blob/develop/modelo_documento_programa_crud.png).
+![image](https://github.com/planesticud/documento_programa_crud/blob/develop/modelo_documento_programa_crud.png).
