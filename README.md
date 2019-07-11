@@ -2,17 +2,18 @@
 API de documentos de soportes para inscripción de programas académicos
 
 Integración con
-    - CI
-    - AWS Lambda - S3
-    - Drone 1.x
-    - documento_programa_crud master/develop
+ - `CI`
+ - `AWS Lambda - S3`
+ - `Drone 1.x`
+ - `documento_programa_crud master/develop`
 
 ## Requerimientos
 Go version >= 1.8.
 
 ## Preparación:
 Para usar el API, usar el comando:
-    - go get github.com/planesticud/documento_programa_crud
+
+ - `go get github.com/planesticud/documento_programa_crud`
 
 ## Ejecución
 Definir los valores de las siguientes variables de entorno:
