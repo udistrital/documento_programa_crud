@@ -11,15 +11,15 @@ import (
 )
 
 type TipoDocumentoPrograma struct {
-	Id                int     `orm:"column(id);pk;auto"`
-	Nombre            string  `orm:"column(nombre)"`
-	Descripcion       string  `orm:"column(descripcion);null"`
-	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
-	Activo            bool    `orm:"column(activo)"`
-	NumeroOrden       float64 `orm:"column(numero_orden);null"`
-	Tamano            float64 `orm:"column(tamano);null"`
-	Extension         string  `orm:"column(extension);null"`
-	FechaModificacion string  `orm:"column(fecha_modificacion);null"`
+	Id                int       `orm:"column(id);pk;auto"`
+	Nombre            string    `orm:"column(nombre)"`
+	Descripcion       string    `orm:"column(descripcion);null"`
+	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
+	Activo            bool      `orm:"column(activo)"`
+	NumeroOrden       float64   `orm:"column(numero_orden);null"`
+	Tamano            float64   `orm:"column(tamano);null"`
+	Extension         string    `orm:"column(extension);null"`
+	FechaModificacion time.Time `orm:"column(fecha_modificacion);auto_now;type(timestamp with time zone)"`
 }
 
 func (t *TipoDocumentoPrograma) TableName() string {
@@ -35,7 +35,7 @@ func init() {
 func AddTipoDocumentoPrograma(m *TipoDocumentoPrograma) (id int64, err error) {
 	var t time.Time
 	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = t.UTC()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -137,7 +137,7 @@ func UpdateTipoDocumentoProgramaById(m *TipoDocumentoPrograma) (err error) {
 	v := TipoDocumentoPrograma{Id: m.Id}
 	var t time.Time
 	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = t.UTC()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

@@ -544,7 +544,8 @@
                     "type": "boolean"
                 },
                 "FechaModificacion": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -554,11 +555,15 @@
                     "type": "number",
                     "format": "double"
                 },
-                "Programa": {
+                "PeriodoId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "TipoDocumentoPrograma": {
+                "ProgramaId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "TipoDocumentoProgramaId": {
                     "$ref": "#/definitions/models.TipoDocumentoPrograma"
                 }
             }
@@ -567,21 +572,22 @@
             "title": "SoporteDocumentoPrograma",
             "type": "object",
             "properties": {
-                "Documento": {
+                "DocumentoId": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "DocumentoPrograma": {
+                "DocumentoProgramaId": {
                     "$ref": "#/definitions/models.DocumentoPrograma"
                 },
-                "Ente": {
+                "FechaModificacion": {
+                    "type": "string",
+                    "format": "datetime"
+                },
+                "Id": {
                     "type": "integer",
                     "format": "int64"
                 },
-                "FechaModificacion": {
-                    "type": "string"
-                },
-                "Id": {
+                "PersonaId": {
                     "type": "integer",
                     "format": "int64"
                 }
@@ -604,7 +610,8 @@
                     "type": "string"
                 },
                 "FechaModificacion": {
-                    "type": "string"
+                    "type": "string",
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",

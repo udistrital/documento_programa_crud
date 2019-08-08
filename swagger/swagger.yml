@@ -365,32 +365,37 @@ definitions:
         type: boolean
       FechaModificacion:
         type: string
+        format: datetime
       Id:
         type: integer
         format: int64
       NumeroOrden:
         type: number
         format: double
-      Programa:
+      PeriodoId:
         type: integer
         format: int64
-      TipoDocumentoPrograma:
+      ProgramaId:
+        type: integer
+        format: int64
+      TipoDocumentoProgramaId:
         $ref: '#/definitions/models.TipoDocumentoPrograma'
   models.SoporteDocumentoPrograma:
     title: SoporteDocumentoPrograma
     type: object
     properties:
-      Documento:
+      DocumentoId:
         type: integer
         format: int64
-      DocumentoPrograma:
+      DocumentoProgramaId:
         $ref: '#/definitions/models.DocumentoPrograma'
-      Ente:
-        type: integer
-        format: int64
       FechaModificacion:
         type: string
+        format: datetime
       Id:
+        type: integer
+        format: int64
+      PersonaId:
         type: integer
         format: int64
   models.TipoDocumentoPrograma:
@@ -407,6 +412,7 @@ definitions:
         type: string
       FechaModificacion:
         type: string
+        format: datetime
       Id:
         type: integer
         format: int64

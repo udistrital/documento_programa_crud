@@ -11,12 +11,13 @@ import (
 )
 
 type DocumentoPrograma struct {
-	Id                    int                    `orm:"column(id);pk;auto"`
-	Activo                bool                   `orm:"column(activo)"`
-	NumeroOrden           float64                `orm:"column(numero_orden);null"`
-	TipoDocumentoPrograma *TipoDocumentoPrograma `orm:"column(tipo_documento_programa);rel(fk)"`
-	Programa              int                    `orm:"column(programa)"`
-	FechaModificacion     string                 `orm:"column(fecha_modificacion);null"`
+	Id                      int                    `orm:"column(id);pk;auto"`
+	Activo                  bool                   `orm:"column(activo)"`
+	NumeroOrden             float64                `orm:"column(numero_orden);null"`
+	TipoDocumentoProgramaId *TipoDocumentoPrograma `orm:"column(tipo_documento_programa_id);rel(fk)"`
+	ProgramaId              int                    `orm:"column(programa_id)"`
+	PeriodoId               int                    `orm:"column(periodo_id)"`
+	FechaModificacion       time.Time              `orm:"column(fecha_modificacion);auto_now;type(timestamp with time zone)"`
 }
 
 func (t *DocumentoPrograma) TableName() string {
@@ -32,7 +33,7 @@ func init() {
 func AddDocumentoPrograma(m *DocumentoPrograma) (id int64, err error) {
 	var t time.Time
 	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = t.UTC()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -134,7 +135,7 @@ func UpdateDocumentoProgramaById(m *DocumentoPrograma) (err error) {
 	v := DocumentoPrograma{Id: m.Id}
 	var t time.Time
 	t = time.Now()
-	m.FechaModificacion = fmt.Sprintf("%s", t.UTC().Format(time.UnixDate))
+	m.FechaModificacion = t.UTC()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
