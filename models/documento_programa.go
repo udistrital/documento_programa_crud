@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type DocumentoPrograma struct {
@@ -17,7 +17,8 @@ type DocumentoPrograma struct {
 	TipoDocumentoProgramaId *TipoDocumentoPrograma `orm:"column(tipo_documento_programa_id);rel(fk)"`
 	ProgramaId              int                    `orm:"column(programa_id)"`
 	PeriodoId               int                    `orm:"column(periodo_id)"`
-	FechaModificacion       time.Time              `orm:"column(fecha_modificacion);auto_now;type(timestamp with time zone)"`
+	FechaCreacion           string                 `orm:"column(fecha_creacion);null"`
+	FechaModificacion       string                 `orm:"column(fecha_modificacion);null"`
 }
 
 func (t *DocumentoPrograma) TableName() string {
@@ -31,9 +32,8 @@ func init() {
 // AddDocumentoPrograma insert a new DocumentoPrograma into database and returns
 // last inserted Id on success.
 func AddDocumentoPrograma(m *DocumentoPrograma) (id int64, err error) {
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = t.UTC()
+	m.FechaCreacion = time_bogota.TiempoBogotaFormato()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
@@ -133,9 +133,7 @@ func GetAllDocumentoPrograma(query map[string]string, fields []string, sortby []
 func UpdateDocumentoProgramaById(m *DocumentoPrograma) (err error) {
 	o := orm.NewOrm()
 	v := DocumentoPrograma{Id: m.Id}
-	var t time.Time
-	t = time.Now()
-	m.FechaModificacion = t.UTC()
+	m.FechaModificacion = time_bogota.TiempoBogotaFormato()
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64

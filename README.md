@@ -18,7 +18,7 @@ Para usar el API, usar el comando:
 ## Ejecución
 Definir los valores de las siguientes variables de entorno:
 
- - `API_DOCUMENTO_PROGRAMA_HTTP_PORT`: Puerto asignado para la ejecución del API
+ - `DOCUMENTO_PROGRAMA_HTTP_PORT`: Puerto asignado para la ejecución del API
  - `DOCUMENTO_PROGRAMA_CRUD__PGUSER`: Usuario de la base de datos
  - `DOCUMENTO_PROGRAMA_CRUD__PGPASS`: Clave del usuario para la conexión a la base de datos  
  - `DOCUMENTO_PROGRAMA_CRUD__PGURLS`: Host de conexión
@@ -26,7 +26,7 @@ Definir los valores de las siguientes variables de entorno:
  - `DOCUMENTO_PROGRAMA_CRUD__SCHEMA`: Esquema a utilizar en la base de datos
 
 ## Ejemplo:
-API_DOCUMENTO_PROGRAMA_HTTP_PORT=9014 DOCUMENTO_PROGRAMA_CRUD__PGUSER=user DOCUMENTO_PROGRAMA_CRUD__PGPASS=password DOCUMENTO_PROGRAMA_CRUD__PGURLS=localhost DOCUMENTO_PROGRAMA_CRUD__PGDB=bd DOCUMENTO_PROGRAMA_CRUD__SCHEMA=schema_new bee run
+DOCUMENTO_PROGRAMA_HTTP_PORT=9014 DOCUMENTO_PROGRAMA_CRUD__PGUSER=user DOCUMENTO_PROGRAMA_CRUD__PGPASS=password DOCUMENTO_PROGRAMA_CRUD__PGURLS=localhost DOCUMENTO_PROGRAMA_CRUD__PGDB=bd DOCUMENTO_PROGRAMA_CRUD__SCHEMA=schema_new bee run
 
 ## Modelo BD
 ![image](https://github.com/planesticud/documento_programa_crud/blob/develop/modelo_documento_programa_crud.png).

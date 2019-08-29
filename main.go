@@ -7,7 +7,9 @@ import (
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
 	_ "github.com/planesticud/documento_programa_crud/routers"
-	"github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/auditoria"
+	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
+	"github.com/udistrital/utils_oas/customerror"
 )
 
 func init() {
@@ -15,7 +17,7 @@ func init() {
 }
 
 func main() {
-	orm.RegisterDataBase("default", "postgres", beego.AppConfig.String("sqlconn"))
+	//orm.Debug = true
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"
@@ -38,7 +40,9 @@ func main() {
 	logPath += beego.AppConfig.String("logPath")
 	logPath += "\"}"
 	logs.SetLogger(logs.AdapterFile, logPath)
+
 	apistatus.Init()
-	orm.RunCommand()
+	auditoria.InitMiddleware()
+	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }
