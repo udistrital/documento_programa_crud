@@ -5,6 +5,7 @@ import (
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
 	_ "github.com/lib/pq"
+	"github.com/udistrital/auditoria"
 	_ "github.com/udistrital/documento_programa_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerror"
@@ -34,13 +35,8 @@ func main() {
 		AllowCredentials: true,
 	}))
 
-	/*logPath := "{\"filename\":\""
-	logPath += beego.AppConfig.String("logPath")
-	logPath += "\"}"
-	logs.SetLogger(logs.AdapterFile, logPath)*/
-
 	apistatus.Init()
-	//auditoria.InitMiddleware()
+	auditoria.InitMiddleware()
 	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }
