@@ -1,0 +1,6 @@
+projectKey=documento_programa_crud
+serverUrl=http://sonarqube.planestic.udistrital.edu.co:9005
+serverVersion=7.0.0.36138
+dashboardUrl=http://sonarqube.planestic.udistrital.edu.co:9005/dashboard/index/documento_programa_crud
+ceTaskId=AW1qFoGUlGVdvusbrOK8
+ceTaskUrl=http://sonarqube.planestic.udistrital.edu.co:9005/api/ce/task?id=AW1qFoGUlGVdvusbrOK8

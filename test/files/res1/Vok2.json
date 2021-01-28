@@ -1,0 +1,14 @@
+{
+  "title": "Example Schema",
+  "type": "object",
+  "properties": {
+    "Id": { "type": "integer" },
+    "ProgramaId": { "type": "integer" },
+    "PeriodoId": { "type": "integer" },
+    "TipoDocumentoProgramaId": { "type": "TipoDocumentoPrograma" },
+    "Activo": { "type": "boolean" },
+    "NumeroOrden": { "type": "number" },
+    "FechaCreacion": { "type": "string" },
+    "FechaModificacion": { "type": "string" }
+  }
+}
