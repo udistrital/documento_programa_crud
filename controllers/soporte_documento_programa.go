@@ -7,7 +7,7 @@ import (
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
-	"github.com/planesticud/documento_programa_crud/models"
+	"github.com/udistrital/documento_programa_crud/models"
 )
 
 // SoporteDocumentoProgramaController operations for SoporteDocumentoPrograma
